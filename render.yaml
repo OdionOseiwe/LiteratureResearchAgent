@@ -4,7 +4,7 @@ services:
   - type: web
     name: literature-research-agent   # public URL: https://literature-research-agent.onrender.com (change if that name is taken)
     runtime: docker
-    plan: starter            # free tier works but sleeps after 15 min idle and has 512MB RAM (Chrome may OOM); starter = 512MB->2GB upgrade path
+    plan: free               # $0; sleeps after 15 min idle, 512MB RAM. Upgrade to 1c-2g if PDF generation OOMs.
     healthCheckPath: /api/health
     autoDeployTrigger: commit
     envVars:

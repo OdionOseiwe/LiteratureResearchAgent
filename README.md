@@ -141,7 +141,7 @@ The root `Dockerfile` builds the frontend and serves it from the Express API as 
 
 **Cost/durability notes**
 - PDFs are regenerated on demand if the file is missing (Render's disk is ephemeral) — downloads keep working across redeploys.
-- The `free` plan sleeps after 15 min idle (~30–60s cold start) and has 512MB RAM; Puppeteer + a research run can OOM it. `render.yaml` ships `plan: starter` for reliability; change to `free` if you want $0 and are OK with cold starts/OOM risk.
+- The `free` plan sleeps after 15 min idle (~30–60s cold start) and has 512MB RAM; Puppeteer + a research run can OOM it. `render.yaml` ships `plan: free` ($0); upgrade to `1c-2g` if PDF generation runs out of memory.
 - SSE keeps the connection alive during research; Render proxies support this (the server emits a heartbeat every 15s).
 - Atlas: whitelist `0.0.0.0/0` (or Render's outbound IPs) in Network Access so the hosted app can connect.
 
