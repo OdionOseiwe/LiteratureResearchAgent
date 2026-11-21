@@ -2,7 +2,7 @@
 # Deploy: Render Dashboard -> New -> Blueprint -> pick this repo -> fill the secret env vars.
 services:
   - type: web
-    name: praxis-research-agent
+    name: literature-research-agent   # public URL: https://literature-research-agent.onrender.com (change if that name is taken)
     runtime: docker
     plan: starter            # free tier works but sleeps after 15 min idle and has 512MB RAM (Chrome may OOM); starter = 512MB->2GB upgrade path
     healthCheckPath: /api/health
