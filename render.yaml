@@ -1,0 +1,33 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Deploy: Render Dashboard -> New -> Blueprint -> pick this repo -> fill the secret env vars.
+services:
+  - type: web
+    name: praxis-research-agent
+    runtime: docker
+    plan: starter            # free tier works but sleeps after 15 min idle and has 512MB RAM (Chrome may OOM); starter = 512MB->2GB upgrade path
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # FRONTEND_URL is optional: the backend auto-uses Render's RENDER_EXTERNAL_URL.
+      - key: MONGODB_URI
+        sync: false          # Atlas connection string (secret)
+      - key: OPENAI_API_KEY
+        sync: false          # Google AI Studio key (AIza…) (secret)
+      - key: OPENAI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai/
+      - key: OPENAI_MODEL
+        value: gemini-3.1-flash-lite
+      - key: OPENAI_MODEL_HEAVY
+        value: gemini-3.5-flash-lite
+      - key: TAVILY_API_KEY
+        sync: false          # (secret)
+      - key: PDF_STORAGE_PATH
+        value: ./storage
+      - key: MAX_SOURCES_PER_RUN
+        value: 18
+      - key: MAX_RESEARCH_ROUNDS
+        value: 2

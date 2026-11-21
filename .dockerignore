@@ -1,0 +1,12 @@
+.git
+node_modules
+**/node_modules
+frontend/dist
+storage
+backend/storage/*.pdf
+**/.env
+*.log
+.DS_Store
+docker-compose.yml
+Dockerfile
+.dockerignore

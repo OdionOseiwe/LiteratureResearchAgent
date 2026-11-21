@@ -1,0 +1,27 @@
+{
+  "name": "research-agent-backend",
+  "version": "1.0.0",
+  "description": "Multi-agent AI research & report generator - backend",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.40",
+    "@langchain/langgraph": "^0.2.48",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.9.5",
+    "openai": "^4.79.1",
+    "puppeteer": "^23.11.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

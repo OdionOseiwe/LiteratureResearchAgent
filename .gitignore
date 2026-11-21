@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+storage/*.pdf
+backend/storage/*.pdf
+!.gitkeep
+.DS_Store
+*.log
